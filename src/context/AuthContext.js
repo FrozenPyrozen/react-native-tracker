@@ -20,7 +20,6 @@ const signup = dispatch => async ({ email, password }) => {
   //if signin up is fails, reflect error msg somewhere
   try {
     const response = await trackerAPI.post('/signup', { email, password });
-    alert('Hi');
 
     await AsyncStorage.setItem('token', response.data.token);
     dispatch({ type: 'signup', payload: response.data.token });
