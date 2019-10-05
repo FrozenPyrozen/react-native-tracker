@@ -9,6 +9,7 @@ const SignupScreen = () => {
   const { state, signup } = useContext(AuthContext);
 
   const handleSubmit = ({ email, password }) => signup({ email, password });
+
   return (
     <View style={styles.container}>
       <AuthForm
