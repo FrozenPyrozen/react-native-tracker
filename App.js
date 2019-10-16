@@ -36,5 +36,5 @@ export default () => (
   </AuthProvider>
 );
 
-// TODO: Last watched video 15. Hanling Errored Requests
+// TODO: Last watched video 30. Hanling Errored Requests
 // TODO: Change baseURL in api/tracker every 8 hours
