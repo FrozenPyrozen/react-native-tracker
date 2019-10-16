@@ -13,11 +13,12 @@ import { setNavigator } from './src/navigationRef';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 const switchNavigator = createSwitchNavigator({
-  ResolveAuth: ResolveAuthScreen,
-  loginFlow: createStackNavigator({
+  // TODO: Uncomment this for auth flow
+  //ResolveAuth: ResolveAuthScreen,
+  /*loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen,
-  }),
+  }),*/
   mainFlow: createBottomTabNavigator({
     trackListFlow: createStackNavigator({
       TrackList: TrackListScreen,
@@ -36,5 +37,5 @@ export default () => (
   </AuthProvider>
 );
 
-// TODO: Last watched video 30. Hanling Errored Requests
+// TODO: Last watched video 33.
 // TODO: Change baseURL in api/tracker every 8 hours
