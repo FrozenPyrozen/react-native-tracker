@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
@@ -9,11 +9,13 @@ import {
 } from 'expo-location';
 
 import Map from '../components/Map';
+import { Context as LocationContext } from '../context/LocationContext';
 
 // Development purposes only! Delete before production
-import '../_mockLocation';
+//import '../_mockLocation';
 
 const TrackCreateScreen = () => {
+  const { addLocation } = useContext(LocationContext);
   const [err, setErr] = useState(null);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const TrackCreateScreen = () => {
           distanceInterval: 10,
         },
         location => {
-          console.log('location: ', location);
+          addLocation(location);
         }
       );
     } catch (error) {
