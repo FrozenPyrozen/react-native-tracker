@@ -11,6 +11,7 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
+import { Provider as LocationProvider } from './src/context/LocationContext';
 
 const switchNavigator = createSwitchNavigator({
   // TODO: Uncomment this for auth flow
@@ -32,9 +33,11 @@ const switchNavigator = createSwitchNavigator({
 const App = createAppContainer(switchNavigator);
 
 export default () => (
-  <AuthProvider>
-    <App ref={navigator => setNavigator(navigator)} />
-  </AuthProvider>
+  <LocationProvider>
+    <AuthProvider>
+      <App ref={navigator => setNavigator(navigator)} />
+    </AuthProvider>
+  </LocationProvider>
 );
 
 // TODO: Last watched video 33.
