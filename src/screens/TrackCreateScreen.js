@@ -7,6 +7,7 @@ import Map from '../components/Map';
 import { Context as LocationContext } from '../context/LocationContext';
 import useLocation from '../hooks/useLocation';
 import TrackForm from '../components/TrackForm';
+import { MaterialIcons } from '@expo/vector-icons';
 
 // Development purposes only! Delete before production
 // import '../_mockLocation';
@@ -27,9 +28,7 @@ const TrackCreateScreen = ({ isFocused }) => {
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text h2 style={styles.text}>
-        Create a Track
-      </Text>
+      <Text h2>Create a Track</Text>
       <Map />
       {err ? (
         <Text style={styles.error}>Please enable location services</Text>
@@ -37,6 +36,11 @@ const TrackCreateScreen = ({ isFocused }) => {
       <TrackForm />
     </SafeAreaView>
   );
+};
+
+TrackCreateScreen.navigationOptions = {
+  title: 'Add Track',
+  tabBarIcon: <MaterialIcons name="add" size={20} />,
 };
 
 const styles = StyleSheet.create({
